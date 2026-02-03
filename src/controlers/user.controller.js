@@ -70,12 +70,12 @@ export { registerUser }
 
 
  // 1. Get user details from frontend
-  // 2. Validation - not empty
-      // 3. Check if user already exists (Added await here)
+// 2. Validation - not empty
+// 3. Check if user already exists (Added await here)
 // 4. Check for images, check for avatar
-    // 5. Upload them to cloudinary
-    // 6. Create user object - create entry in db
-    // 6. Create user object - create entry in db
-   // 7. Remove password and refresh token field from response
-       // 8. Check for user creation
-           // 9. Return response
+// 5. Upload them to cloudinary
+// 6. Create user object - create entry in db
+// 6. Create user object - create entry in db
+// 7. Remove password and refresh token field from response
+// 8. Check for user creation
+// 9. Return response
