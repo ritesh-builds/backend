@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { DB_NAME } from '../constants.js';
-
+import { exit } from 'node:process';
 
 const connectDB = async ()=> {
     try {
@@ -9,7 +9,7 @@ const connectDB = async ()=> {
         
     } catch (error) {
         console.log('ERROR: MONGODB connection error',error)
-        process.exit(1)
+        process.exit(1)        // It's a feature of nodejs. 
     }
 }
 
