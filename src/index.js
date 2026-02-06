@@ -8,8 +8,7 @@ dotenv.config({
     path: './.env'
 })
 
-connectDB()
-.then(()=> {    
+connectDB().then(()=> {    
     app.on("error", (error) => {
             console.log(`[ERROR]: `, error)
             throw error
@@ -21,7 +20,7 @@ connectDB()
         
     })
 })
-.catch((error)=> {
+.catch((error)=> {  
     console.log("ERROR: MongoDB connection failed!!",error);
     
 })
