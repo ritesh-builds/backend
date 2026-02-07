@@ -9,9 +9,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const { fullName, email, userName, password } = req.body
 
     // 2. Validation - not empty
-    if (
-        [fullName, email, userName, password].some((field) => field?.trim() === "")
-    ) {
+    if ([fullName, email, userName, password].some((field) => field?.trim() === "")) {
         throw new ApiError(400, "All fields are compulsory or required.")
     }
 
@@ -28,16 +26,19 @@ const registerUser = asyncHandler(async (req, res) => {
     const avatarLocalPath = req.files?.avatar?.[0]?.path;
     const coverimageLocalPath = req.files?.coverImage?.[0]?.path;
 
-    if (!avatarLocalPath) {
-        throw new ApiError(400, "Avatar file is required.")
-    }
+    // if (!avatarLocalPath) {
+    //     throw new ApiError(400, "Avatar file is required.")
+    // }
 
     // 5. Upload them to cloudinary
     const avatar = await uploadOnCloudinary(avatarLocalPath)
     const coverImage = await uploadOnCloudinary(coverimageLocalPath)
 
     if (!avatar) {
-        throw new ApiError(400, "Avatar file is required.")
+        throw new ApiError(400, "Avatar file is required!")
+    }
+    if (!req.files?.coverImage) {
+    throw new Error("Cover image is required.");
     }
 
     // 6. Create user object - create entry in db
